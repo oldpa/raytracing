@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" charset="utf-8" src="raytracing.js"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			window.onload = function () {
+                var rt = new RayTracing("raytracing")
+                var theta = 80;
+                rt.init();
+                function moveLight () {
+                    rt.setLight([
+                        20*Math.cos(theta*Math.PI/180) << 0,
+                        15,
+                        -5 + 20*Math.sin(theta*Math.PI/180) << 0
+                    ]);
+                    rt.draw();
+                    theta += 10;
+                    //setTimeout(moveLight, 70)
+                }
+                moveLight();
+			};
+		</script>
+
+	</head>
+	<body>
+		<canvas id="raytracing" width="400px" height="200px"></canvas>
+	</body>
+</html>
